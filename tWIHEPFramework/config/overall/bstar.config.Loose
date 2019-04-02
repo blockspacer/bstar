@@ -1,0 +1,93 @@
+###############################################################################
+#
+# Configuration file for the single top analysis.
+#
+# Modifications:
+###############################################################################
+#
+#
+# Set the debug level: the higher, the more printout
+DebugLevel: 10
+#
+# Mass set to MC value for this study.
+# If we are optimizing for some top mass, set that mass here:
+TopMass: 172.5
+#
+#
+# Read in a file listing cuts we want to make (electron channel):
+Include.CutsFile: macros/wt-channel/LP/config/cuts/bstar.cuts
+#
+#
+# Read in a file listing the event weight:
+Include.WeightsFile: config/weights/MCInformation.bstar.weights
+#
+#
+# Read in a file listing the object ID definitions:
+Include.ObjectIDFile: macros/wt-channel/LP/config/objects/bstar.config.Loose
+#
+# Output file with topological variables
+Topology.SkimFile: topovars.root
+#
+#
+# Events files 
+Include.MCTotEventNumberFile: config/weights/MCInformation.bstar.weights
+#
+#
+# pile up vtx reweighting 
+#Include.pileUpReWeightingFile: config/weights/SingleTopWeights.PileUpReWeight.156.weights
+#
+#
+#muonID SFs
+Include.MuonIDSFsFile: config/weights/muon/MuonID_all_bstar.root
+LeptonID.MuonIDSFHistName: MC_NUM_TightID_DEN_genTracks_PAR_pt_eta
+#
+#
+#muonISO SFs
+Include.MuonISOSFsFile: config/weights/muon/MuonISO_all.root
+LeptonID.MuonIsoSFHistName: TightISO_TightID_pt_eta
+#
+#
+#muonTk SFs
+Include.MuonTKSFsFile: config/weights/muon/MuonTK_BtoH.root
+#
+#
+#muonTrig SFs
+Include.MuonTrigSFsFile: config/weights/muon/SLTrg_all.root
+LeptonID.MuonTrigSHHistName:Mu50_OR_TkMu50_PtEtaBins
+#Include.MuonTrigSFsFile: config/weights/muon/MuonTrig_all.root
+#LeptonID.MuonTrigSHHistName: IsoMu24_OR_IsoTkMu24_PtEtaBins
+#
+#
+#electron ID SFs
+Include.EleIDFileName: config/weights/electron/egammaEffi.txt_EGM2D_id.root
+LeptonID.EleIDHistName: EGamma_SF2D
+#
+#
+#electron reco SFs
+Include.EleRecoFileName: config/weights/electron/egammaEffi.txt_EGM2D_reco.root
+LeptonID.EleRecoHistName: EGamma_SF2D
+#
+#
+#b tag reshaping csv file and tagger name
+Include.BTagCSVFile: config/weights/CSVv2_Moriond17_B_H.csv
+#Include.BTagCSVFile: config/weights/CSVv2_ichep.csv
+BTaggerAlgo: CSVv2
+#
+#
+#pileup reweighting files
+Include.dataPVFile: config/weights/MyDataPileupHistogram_69200.root
+#Include.mcPVFile: config/weights/PileUpReweightingMoriond17.root
+Include.mcPVFile: config/weights/PileUpMCdistribution.root 
+Include.minBiasUp: config/weights/MyDataPileupHistogram_69200Up.root
+Include.minBiasDown: config/weights/MyDataPileupHistogram_69200Do.root 
+#
+#
+#bTag efficiencies
+#Include.bTagEfficFile: config/weights/bTagEfficiencies.root
+Include.bTagEfficFile: config/weights/BTag_eff_SR/
+
+#Systematic uncertainty
+#Systs.doJESUp:1
+#Systs.doJESDown:1
+#Systs.doJERUp:1
+#Systs.doJERDown:1

@@ -1,0 +1,65 @@
+###############################################################################
+#
+# SingleTopCuts.Wt.ElectronMuon.onePlusJets.cuts
+#
+###############################################################################
+
+# ############ Trigger Cuts ###############
+# Trigger cuts implemented within the trigger cut classes (for now)
+
+################# Electron Cuts #########################
+# Number of Electrons
+Cut.Electron.Tight.Number.Min:  1
+Cut.Electron.Tight.Number.Max:  1
+Cut.Electron.Tight.LeadingPt:  26
+Cut.Electron.Tight.SubLeadingPt:  20
+################# UnIsolated Electron Cuts #########################
+Cut.Electron.UnIsolated.Number.Min:  1
+Cut.Electron.UnIsolated.Number.Max:  1
+Cut.Electron.UnIsolated.LeadingPt:  26
+Cut.Electron.UnIsolated.SubLeadingPt:  20
+################# Veto Electron Cuts #########################
+# Number of Electrons
+Cut.Electron.Veto.Number.Min:  1
+Cut.Electron.Veto.Number.Max:  1
+################# Muon Cuts #########################
+# Number of  Muons
+Cut.Muon.Tight.Number.Min:  0
+Cut.Muon.Tight.Number.Max:  0
+Cut.Muon.Tight.LeadingPt:  26
+Cut.Muon.Tight.SubLeadingPt:  20
+################# UnIsolated Muon Cuts #########################
+# Number of  Muons
+Cut.Muon.UnIsolated.Number.Min:  0
+Cut.Muon.UnIsolated.Number.Max:  0
+Cut.Muon.UnIsolated.LeadingPt:  26
+Cut.Muon.UnIsolated.SubLeadingPt:  20
+################ Veto Muon Cuts ########################
+# Number of Veto Muons
+Cut.Muon.Veto.Number.Min:  0
+Cut.Muon.Veto.Number.Max:  0
+# ############## Jet Cuts ##############################
+# Jet multiplicity cuts
+Cut.Jet.Number.Min:  3
+Cut.Jet.Number.Max:  3
+Cut.Jet.Pt.1.Min:  30
+Cut.Jet.Pt.1.Max: 999
+# ############## Tagged Jet Cuts #################
+# Tagged Jet multiplicity cuts
+Cut.Tagged.Jet.Number.Min: 1
+Cut.Tagged.Jet.Number.Max: 1
+
+################ Global Event Cuts #####################
+# Missing ET
+Cut.Event.MissingEt.Min:  50.0
+Cut.Event.MissingEt.Max: 999.0
+
+# ############## SumDeltaPhiLepMET #################
+# SumDeltaPhiLepMET cuts
+Triangular.SumDeltaPhiLepMET.Min:  2.5
+Triangular.SumDeltaPhiLepMET.Max: 999
+
+################ Global Event Cuts #####################
+# HTJet1
+Cut.Event.HTJET1.Min:  999.0
+Cut.Event.HTJET1.Max: 999.0

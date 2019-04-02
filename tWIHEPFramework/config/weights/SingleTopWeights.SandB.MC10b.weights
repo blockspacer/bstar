@@ -1,0 +1,957 @@
+##############################################################################\
+#
+# Event Weights for D3PD Single-top group ntuples (as of v1569)
+#
+# The weights were calculated according to the W = XS*KF*L/N where 
+# where XS is the "sample" cross-section which includes the branching ratio,
+# MLM matching efficiency and filter efficiency (if any).  KF is the k-factor,
+# N is the number of Monte Carlo events in the sample, and L is the desired 
+# luminosity.  For a normalization of 100pb-1, L = 100.
+#
+# The weight is applied when filling each quantity in each event.
+#
+# Modifications:
+# 10 Apr 2007 - P. Ryan - Copied from v1114 version
+# 19 Apr 2007 - R. Schwienhorst - Update 5200 numbers to actual MC contents
+# 14 Aug 2007 - P. Ryan - updated for automation by python scripts
+# 08 Jul 2009 - J. Holzbauer - Updated numbers for 10 TeV, updated for "sample"
+#    cross-sections that include branching ratios.  Updated to include k-factor
+# 30 Sep 2010 - J. Holzbauer - Division by N now occurs in EventWeight class
+#               Now Weight = XS*K*L(*BR).  The default Weight is now 0.0, 
+#               which tells EventWeight to set GlobalWeight to 1.0
+###############################################################################
+#Current Luminosity is set to 100 pb^-1
+
+# 105200 NoFullHad
+# XS = 80.107 K = 1.12
+Weight.Source.105200: 8971.98400
+#
+#
+# 105204 FullHad
+# XS = 64.019 K = 1.17
+Weight.Source.105204: 7490.22300
+#
+#
+# 105205 ttbarLONoAllHad
+# XS = 58.228 K = 1.53
+Weight.Source.105205: 8908.88400
+#
+#
+# 105861 NoFullHad
+# XS = 79.117 K = 1.13
+Weight.Source.105861: 8940.22100
+#
+#
+# 105860 NoFullHad
+# XS = 79.117 K = 1.13
+Weight.Source.105860: 8940.22100
+#
+#
+# 108340 tchan->e
+# XS = 6.941 K = 1.0
+Weight.Source.108340: 694.10000
+#
+#
+# 108341 tchan->mu
+# XS = 6.825 K = 1.0
+Weight.Source.108341: 682.50000
+#
+#
+# 108342 tchan->tau
+# XS = 7.264 K = 1.0
+Weight.Source.108342: 726.40000
+#
+#
+# 108343 schan->e
+# XS = 0.498 K = 1.0
+Weight.Source.108343: 49.80000
+#
+#
+# 108344 schan->mu
+# XS = 0.489 K = 1.0
+Weight.Source.108344: 48.90000
+#
+#
+# 108345 schan->tau
+# XS = 0.521 K = 1.0
+Weight.Source.108345: 52.10000
+#
+#
+# 108346 wtchan MCNLO+HW/JM
+# XS = 15.74 K = 1.0
+Weight.Source.108346: 1574.00000
+#
+#
+# 117360 tchanenu
+# XS = 6.941 K = 1.0
+Weight.Source.117360: 694.10000
+#
+#
+# 117361 tchanmunu
+# XS = 6.825 K = 1.0
+Weight.Source.117361: 682.50000
+#
+#
+# 117362 tchantaunu
+# XS = 7.264 K = 1.0
+Weight.Source.117362: 726.40000
+#
+#
+# 117363 schanenu
+# XS = 0.498 K = 1.0
+Weight.Source.117363: 49.80000
+#
+#
+# 117364 schanmunu
+# XS = 0.489 K = 1.0
+Weight.Source.117364: 48.90000
+#
+#
+# 117365 schantaunu
+# XS = 0.521 K = 1.0
+Weight.Source.117365: 52.10000
+#
+#
+# 117366 Wtchan_incl
+# XS = 15.74 K = 1.0
+Weight.Source.117366: 1574.00000
+#
+#
+# 117367 wtdilep AcerMC + PY
+# XS = 1.65 K = 1.0
+Weight.Source.117367: 165.00000
+#
+#
+# 105500 Wtchaninclusive
+# XS = 15.74 K = 1.0
+Weight.Source.105500: 1574.00000
+#
+#
+# 105985 WW->all
+# XS = 11.5003 K = 1.48
+Weight.Source.105985: 1702.04440
+#
+#
+# 105986 ZZ->all
+# XS = 0.9722 K = 1.3
+Weight.Source.105986: 126.38600
+#
+#
+# 105987 WZ->all
+# XS = 3.4641 K = 1.6
+Weight.Source.105987: 554.25600
+#
+#
+# 105802 PythiaJF17
+# XS = 84978840.0 K = 1.0
+Weight.Source.105802: 8497884000.00000
+#
+#
+# 117255 NoFullHadISRmin
+# XS = 58.23 K = 1.53
+Weight.Source.117255: 8909.19000
+#
+#
+# 117256 NoFullHadISRmax
+# XS = 58.23 K = 1.53
+Weight.Source.117256: 8909.19000
+#
+#
+# 117257 NoFullHadFSRmin
+# XS = 58.23 K = 1.53
+Weight.Source.117257: 8909.19000
+#
+#
+# 117258 NoFullHadFSRmax
+# XS = 58.23 K = 1.53
+Weight.Source.117258: 8909.19000
+#
+#
+# 117259 NoFullHadIFSRmin
+# XS = 58.23 K = 1.53
+Weight.Source.117259: 8909.19000
+#
+#
+# 117260 NoFullHadIFSRmax
+# XS = 58.23 K = 1.53
+Weight.Source.117260: 8909.19000
+#
+#
+# 117320 tchan_min_ISR_enu
+# XS = 6.941 K = 1.0
+Weight.Source.117320: 694.10000
+#
+#
+# 117321 tchan_min_ISR_munu
+# XS = 6.825 K = 1.0
+Weight.Source.117321: 682.50000
+#
+#
+# 117322 tchan_min_ISR_taunu
+# XS = 7.264 K = 1.0
+Weight.Source.117322: 726.40000
+#
+#
+# 117323 schan_min_ISR_enu
+# XS = 0.498 K = 1.0
+Weight.Source.117323: 49.80000
+#
+#
+# 117324 schan_min_ISR_munu
+# XS = 0.489 K = 1.0
+Weight.Source.117324: 48.90000
+#
+#
+# 117325 schan_min_ISR_taunu
+# XS = 0.521 K = 1.0
+Weight.Source.117325: 52.10000
+#
+#
+# 117326 Wtchan_min_ISR_incl
+# XS = 15.74 K = 1.0
+Weight.Source.117326: 1574.00000
+#
+#
+# 117327 wtdilep_min_ISR AcerMC + PY
+# XS = 1.65 K = 1.0
+Weight.Source.117327: 165.00000
+#
+#
+# 117330 tchan_max_ISR_enu
+# XS = 6.941 K = 1.0
+Weight.Source.117330: 694.10000
+#
+#
+# 117331 tchan_max_ISR_munu
+# XS = 6.825 K = 1.0
+Weight.Source.117331: 682.50000
+#
+#
+# 117332 tchan_max_ISR_taunu
+# XS = 7.264 K = 1.0
+Weight.Source.117332: 726.40000
+#
+#
+# 117333 schan_max_ISR_enu
+# XS = 0.498 K = 1.0
+Weight.Source.117333: 49.80000
+#
+#
+# 117334 schan_max_ISR_munu
+# XS = 0.489 K = 1.0
+Weight.Source.117334: 48.90000
+#
+#
+# 117335 schan_max_ISR_taunu
+# XS = 0.521 K = 1.0
+Weight.Source.117335: 52.10000
+#
+#
+# 117336 Wtchan_max_ISR_incl
+# XS = 15.74 K = 1.0
+Weight.Source.117336: 1574.00000
+#
+#
+# 117337 wtdilep_max_ISR AcerMC + PY
+# XS = 1.65 K = 1.0
+Weight.Source.117337: 165.00000
+#
+#
+# 117340 tchan_min_FSR_enu
+# XS = 6.941 K = 1.0
+Weight.Source.117340: 694.10000
+#
+#
+# 117341 tchan_min_FSR_munu
+# XS = 6.825 K = 1.0
+Weight.Source.117341: 682.50000
+#
+#
+# 117342 tchan_min_FSR_taunu
+# XS = 7.264 K = 1.0
+Weight.Source.117342: 726.40000
+#
+#
+# 117343 schan_min_FSR_enu
+# XS = 0.498 K = 1.0
+Weight.Source.117343: 49.80000
+#
+#
+# 117344 schan_min_FSR_munu
+# XS = 0.489 K = 1.0
+Weight.Source.117344: 48.90000
+#
+#
+# 117345 schan_min_FSR_taunu
+# XS = 0.521 K = 1.0
+Weight.Source.117345: 52.10000
+#
+#
+# 117346 Wtchan_min_FSR_incl
+# XS = 15.74 K = 1.0
+Weight.Source.117346: 1574.00000
+#
+#
+# 117347 wtdilep_min_FSR AcerMC + PY
+# XS = 1.65 K = 1.0
+Weight.Source.117347: 165.00000
+#
+#
+# 117350 tchan_max_FSR_enu
+# XS = 6.941 K = 1.0
+Weight.Source.117350: 694.10000
+#
+#
+# 117351 tchan_max_FSR_munu
+# XS = 6.825 K = 1.0
+Weight.Source.117351: 682.50000
+#
+#
+# 117352 tchan_max_FSR_taunu
+# XS = 7.264 K = 1.0
+Weight.Source.117352: 726.40000
+#
+#
+# 117353 schan_max_FSR_enu
+# XS = 0.498 K = 1.0
+Weight.Source.117353: 49.80000
+#
+#
+# 117354 schan_max_FSR_munu
+# XS = 0.489 K = 1.0
+Weight.Source.117354: 48.90000
+#
+#
+# 117355 schan_max_FSR_taunu
+# XS = 0.521 K = 1.0
+Weight.Source.117355: 52.10000
+#
+#
+# 117356 Wtchan_max_FSR_incl
+# XS = 15.74 K = 1.0
+Weight.Source.117356: 1574.00000
+#
+#
+# 117357 wtdilep_max_FSR AcerMC + PY
+# XS = 1.65 K = 1.0
+Weight.Source.117357: 165.00000
+#
+#
+# 117370 tchan_ISR_and_FSR_down_enu
+# XS = 6.941 K = 1.0
+Weight.Source.117370: 694.10000
+#
+#
+# 117371 tchan_ISR_and_FSR_down_munu
+# XS = 6.825 K = 1.0
+Weight.Source.117371: 682.50000
+#
+#
+# 117372 tchan_ISR_and_FSR_down_taunu
+# XS = 7.264 K = 1.0
+Weight.Source.117372: 726.40000
+#
+#
+# 117373 schan_ISR_and_FSR_down_enu
+# XS = 0.498 K = 1.0
+Weight.Source.117373: 49.80000
+#
+#
+# 117374 schan_ISR_and_FSR_down_munu
+# XS = 0.489 K = 1.0
+Weight.Source.117374: 48.90000
+#
+#
+# 117375 schan_ISR_and_FSR_down_taunu
+# XS = 0.521 K = 1.0
+Weight.Source.117375: 52.10000
+#
+#
+# 117376 Wtchan_ISR_and_FSR_down_incl
+# XS = 15.74 K = 1.0
+Weight.Source.117376: 1574.00000
+#
+#
+# 117377 wtdilep_ISR_and_FSR_down AcerMC + PY
+# XS = 1.65 K = 1.0
+Weight.Source.117377: 165.00000
+#
+#
+# 117380 tchan_ISR_and_FSR_up_enu
+# XS = 6.941 K = 1.0
+Weight.Source.117380: 694.10000
+#
+#
+# 117381 tchan_ISR_and_FSR_up_munu
+# XS = 6.825 K = 1.0
+Weight.Source.117381: 682.50000
+#
+#
+# 117382 tchan_ISR_and_FSR_up_taunu
+# XS = 7.264 K = 1.0
+Weight.Source.117382: 726.40000
+#
+#
+# 117383 schan_ISR_and_FSR_up_enu
+# XS = 0.498 K = 1.0
+Weight.Source.117383: 49.80000
+#
+#
+# 117384 schan_ISR_and_FSR_up_munu
+# XS = 0.489 K = 1.0
+Weight.Source.117384: 48.90000
+#
+#
+# 117385 schan_ISR_and_FSR_up_taunu
+# XS = 0.521 K = 1.0
+Weight.Source.117385: 52.10000
+#
+#
+# 117386 Wtchan_ISR_and_FSR_up_incl
+# XS = 15.74 K = 1.0
+Weight.Source.117386: 1574.00000
+#
+#
+# 117387 wtdilep_ISR_and_FSR_up AcerMC + PY
+# XS = 1.65 K = 1.0
+Weight.Source.117387: 165.00000
+#
+#
+# 117390 st_tchan_enu
+# XS = 6.941 K = 1.0
+Weight.Source.117390: 694.10000
+#
+#
+# 117391 st_tchan_munu
+# XS = 6.825 K = 1.0
+Weight.Source.117391: 682.50000
+#
+#
+# 117392 st_tchan_taunu
+# XS = 7.264 K = 1.0
+Weight.Source.117392: 726.40000
+#
+#
+# 117393 st_tchan_enu
+# XS = 0.498 K = 1.0
+Weight.Source.117393: 49.80000
+#
+#
+# 117394 st_tchan_munu
+# XS = 0.489 K = 1.0
+Weight.Source.117394: 48.90000
+#
+#
+# 117395 st_tchan_taunu
+# XS = 0.521 K = 1.0
+Weight.Source.117395: 52.10000
+#
+#
+# 117396 st_Wtchan
+# XS = 15.74 K = 1.0
+Weight.Source.117396: 1574.00000
+#
+#
+# 117397 wtdilep AcerMC+HW
+# XS = 1.65 K = 1.0
+Weight.Source.117397: 165.00000
+#
+#
+# 107650 ZeeNp0
+# XS = 668.32 K = 1.25
+Weight.Source.107650: 83540.00000
+#
+#
+# 107651 ZeeNp1
+# XS = 134.36 K = 1.25
+Weight.Source.107651: 16795.00000
+#
+#
+# 107652 ZeeNp2
+# XS = 40.54 K = 1.25
+Weight.Source.107652: 5067.50000
+#
+#
+# 107653 ZeeNp3
+# XS = 11.16 K = 1.25
+Weight.Source.107653: 1395.00000
+#
+#
+# 107654 ZeeNp4
+# XS = 2.88 K = 1.25
+Weight.Source.107654: 360.00000
+#
+#
+# 107655 ZeeNp5
+# XS = 0.83 K = 1.25
+Weight.Source.107655: 103.75000
+#
+#
+# 107660 ZmumuNp0
+# XS = 668.68 K = 1.25
+Weight.Source.107660: 83585.00000
+#
+#
+# 107661 ZmumuNp1
+# XS = 134.14 K = 1.25
+Weight.Source.107661: 16767.50000
+#
+#
+# 107662 ZmumuNp2
+# XS = 40.33 K = 1.25
+Weight.Source.107662: 5041.25000
+#
+#
+# 107663 ZmumuNp3
+# XS = 11.19 K = 1.25
+Weight.Source.107663: 1398.75000
+#
+#
+# 107664 ZmumuNp4
+# XS = 2.75 K = 1.25
+Weight.Source.107664: 343.75000
+#
+#
+# 107665 ZmumuNp5
+# XS = 0.77 K = 1.25
+Weight.Source.107665: 96.25000
+#
+#
+# 107670 ZtautauNp0
+# XS = 668.4 K = 1.25
+Weight.Source.107670: 83550.00000
+#
+#
+# 107671 ZtautauNp1
+# XS = 134.81 K = 1.25
+Weight.Source.107671: 16851.25000
+#
+#
+# 107672 ZtautauNp2
+# XS = 40.36 K = 1.25
+Weight.Source.107672: 5045.00000
+#
+#
+# 107673 ZtautauNp3
+# XS = 11.25 K = 1.25
+Weight.Source.107673: 1406.25000
+#
+#
+# 107674 ZtautauNp4
+# XS = 2.79 K = 1.25
+Weight.Source.107674: 348.75000
+#
+#
+# 107675 ZtautauNp5
+# XS = 0.77 K = 1.25
+Weight.Source.107675: 96.25000
+#
+#
+# 107680 WenuNp0
+# XS = 6921.6 K = 1.2
+Weight.Source.107680: 830592.00000
+#
+#
+# 107681 WenuNp1
+# XS = 1304.3 K = 1.2
+Weight.Source.107681: 156516.00000
+#
+#
+# 107682 WenuNp2
+# XS = 378.29 K = 1.2
+Weight.Source.107682: 45394.80000
+#
+#
+# 107683 WenuNp3
+# XS = 101.43 K = 1.2
+Weight.Source.107683: 12171.60000
+#
+#
+# 107684 WenuNp4
+# XS = 25.87 K = 1.2
+Weight.Source.107684: 3104.40000
+#
+#
+# 107685 WenuNp5
+# XS = 7.0 K = 1.2
+Weight.Source.107685: 840.00000
+#
+#
+# 107690 WmunuNp0
+# XS = 6919.6 K = 1.2
+Weight.Source.107690: 830352.00000
+#
+#
+# 107691 WmunuNp1
+# XS = 1304.2 K = 1.2
+Weight.Source.107691: 156504.00000
+#
+#
+# 107692 WmunuNp2
+# XS = 377.83 K = 1.2
+Weight.Source.107692: 45339.60000
+#
+#
+# 107693 WmunuNp3
+# XS = 101.88 K = 1.2
+Weight.Source.107693: 12225.60000
+#
+#
+# 107694 WmunuNp4
+# XS = 25.75 K = 1.2
+Weight.Source.107694: 3090.00000
+#
+#
+# 107695 WmunuNp5
+# XS = 6.92 K = 1.2
+Weight.Source.107695: 830.40000
+#
+#
+# 107700 WtaunuNp0
+# XS = 6918.6 K = 1.2
+Weight.Source.107700: 830232.00000
+#
+#
+# 107701 WtaunuNp1
+# XS = 1303.2 K = 1.2
+Weight.Source.107701: 156384.00000
+#
+#
+# 107702 WtaunuNp2
+# XS = 378.18 K = 1.2
+Weight.Source.107702: 45381.60000
+#
+#
+# 107703 WtaunuNp3
+# XS = 101.51 K = 1.2
+Weight.Source.107703: 12181.20000
+#
+#
+# 107704 WtaunuNp4
+# XS = 25.64 K = 1.2
+Weight.Source.107704: 3076.80000
+#
+#
+# 107705 WtaunuNp5
+# XS = 7.04 K = 1.2
+Weight.Source.107705: 844.80000
+#
+#
+# 107280 WbbNp0
+# XS = 47.32 K = 1.2
+Weight.Source.107280: 5678.40000
+#
+#
+# 107281 WbbNp1
+# XS = 35.77 K = 1.2
+Weight.Source.107281: 4292.40000
+#
+#
+# 107282 WbbNp2
+# XS = 17.34 K = 1.2
+Weight.Source.107282: 2080.80000
+#
+#
+# 107283 WbbNp3
+# XS = 6.63 K = 1.2
+Weight.Source.107283: 795.60000
+#
+#
+# 117284 WccNp0
+# XS = 127.53 K = 1.2
+Weight.Source.117284: 15303.60000
+#
+#
+# 117285 WccNp1
+# XS = 104.68 K = 1.2
+Weight.Source.117285: 12561.60000
+#
+#
+# 117286 WccNp2
+# XS = 52.08 K = 1.2
+Weight.Source.117286: 6249.60000
+#
+#
+# 117287 WccNp3
+# XS = 16.96 K = 1.2
+Weight.Source.117287: 2035.20000
+#
+#
+# 117288 WcNp0
+# XS = 437.59 K = 1.2
+Weight.Source.117288: 52510.80000
+#
+#
+# 117289 WcNp1
+# XS = 161.46 K = 1.2
+Weight.Source.117289: 19375.20000
+#
+#
+# 117290 WcNp2
+# XS = 42.88 K = 1.2
+Weight.Source.117290: 5145.60000
+#
+#
+# 117291 WcNp3
+# XS = 9.98 K = 1.2
+Weight.Source.117291: 1197.60000
+#
+#
+# 117292 WcNp4
+# XS = 2.42 K = 1.2
+Weight.Source.117292: 290.40000
+#
+#
+# 117293 Wc0jFULL
+# XS = 644.4 K = 1.2
+Weight.Source.117293: 77328.00000
+#
+#
+# 117294 Wc1jFULL
+# XS = 205.0 K = 1.2
+Weight.Source.117294: 24600.00000
+#
+#
+# 117295 Wc2jFULL
+# XS = 50.8 K = 1.2
+Weight.Source.117295: 6096.00000
+#
+#
+# 117296 Wc3jFULL
+# XS = 11.4 K = 1.2
+Weight.Source.117296: 1368.00000
+#
+#
+# 117297 Wc4jFULL
+# XS = 2.8 K = 1.2
+Weight.Source.117297: 336.00000
+#
+#
+# 117868 Bprime300GeV_dilep+semiLep(notau) MadGraph + PY
+# XS = 4.5261 K = 1.0 
+Weight.Source.117868: 452.61000
+#
+#
+# 117869 Bprime400GeV_dilep+semiLep(notau) MadGraph + PY
+# XS = 3.5588 K = 1.0 
+Weight.Source.117869: 355.88000
+#
+#
+# 117870 Bprime500GeV_dilep+semiLep(notau) MadGraph + PY
+# XS = 2.0491 K = 1.0 
+Weight.Source.117870: 204.91000
+#
+#
+# 117871 Bprime600GeV_dilep+semiLep(notau) MadGraph + PY
+# XS = 1.1294 K = 1.0 
+Weight.Source.117871: 112.94000
+#
+#
+# 117872 Bprime700GeV_dilep+semiLep(notau) MadGraph + PY
+# XS = 0.6202 K = 1.0 
+Weight.Source.117872: 62.02000
+#
+#
+# 117873 Bprime800GeV_dilep+semiLep(notau) MadGraph + PY
+# XS = 0.3454 K = 1.0 
+Weight.Source.117873: 34.54000
+#
+#
+# 117874 Bprime900GeV_dilep+semiLep(notau) MadGraph + PY
+# XS = 0.1929 K = 1.0 
+Weight.Source.117874: 19.29000
+#
+#
+# 117875 Bprime1000GeV_dilep+semiLep(notau) MadGraph + PY
+# XS = 0.1101 K = 1.0 
+Weight.Source.117875: 11.01000
+#
+#
+# 117876 Bprime1100GeV_dilep+semiLep(notau) MadGraph + PY
+# XS = 0.0640 K = 1.0 
+Weight.Source.117876: 6.40000
+#
+#
+# 117877 Bprime1200GeV_dilep+semiLep(notau) MadGraph + PY
+# XS = 0.0374 K = 1.0 
+Weight.Source.117877: 3.74000
+#
+#
+# 117878 Bprime1300GeV_dilep+semiLep(notau) MadGraph + PY
+# XS = 0.0223 K = 1.0 
+Weight.Source.117878: 2.23000
+#
+#
+# 117879 Bprime1400GeV_dilep+semiLep(notau) MadGraph + PY
+# XS = 0.0134 K = 1.0 
+Weight.Source.117879: 1.34000
+#
+#
+# 119371 W' mass of 500 GeV
+# XS = 1. unknown x-section for the moment
+Weight.Source.119371: 100
+#
+#
+# 119372 W' mass of 750 GeV
+# XS = 1. unknown x-section for the moment
+Weight.Source.119372: 100
+#
+#
+# 119373 W' mass of 1000 GeV
+# XS = 1. unknown x-section for the moment
+Weight.Source.119373: 100
+#
+#
+# 119374 W' mass of 1250 GeV
+# XS = 1. unknown x-section for the moment
+Weight.Source.119374: 100
+#
+#
+# 119375 W' mass of 1500 GeV
+# XS = 1. unknown x-section for the moment
+Weight.Source.119375: 100
+#
+#
+# 119376 W' mass of 1750 GeV
+# XS = 1. unknown x-section for the moment
+Weight.Source.119376: 100
+#
+#
+# 119377 W' mass of 2000 GeV
+# XS = 1. unknown x-section for the moment
+Weight.Source.119377: 100
+#
+#
+# 119378 W' mass of 2500 GeV
+# XS = 1. unknown x-section for the moment
+Weight.Source.119378: 100
+#
+#
+# 119379 W' mass of 3000 GeV
+# XS = 1. unknown x-section for the moment
+Weight.Source.119379: 100
+#
+#
+# 119380 W' mass of 500 GeV
+# XS = 1. unknown x-section for the moment
+Weight.Source.119380: 100
+#
+#
+# 119381 W' mass of 750 GeV
+# XS = 1. unknown x-section for the moment
+Weight.Source.119381: 100
+#
+#
+# 119382 W' mass of 1000 GeV
+# XS = 1. unknown x-section for the moment
+Weight.Source.119382: 100
+#
+#
+# 119383 W' mass of 1250 GeV
+# XS = 1. unknown x-section for the moment
+Weight.Source.119383: 100
+#
+#
+# 119384 W' mass of 1500 GeV
+# XS = 1. unknown x-section for the moment
+Weight.Source.119384: 100
+#
+#
+# 119385 W' mass of 1750 GeV
+# XS = 1. unknown x-section for the moment
+Weight.Source.119385: 100
+#
+#
+# 119386 W' mass of 2000 GeV
+# XS = 1. unknown x-section for the moment
+Weight.Source.119386: 100
+#
+#
+# 119387 W' mass of 2500 GeV
+# XS = 1. unknown x-section for the moment
+Weight.Source.119387: 100
+#
+#
+# 119388 W' mass of 3000 GeV
+# XS = 1. unknown x-section for the moment
+Weight.Source.119388: 100
+#
+# 107100 WW, both W->l nu Np0
+# XS = 2.0950 K = 1.26
+Weight.Source.107100: 263.97
+#
+#
+# 107101 WW, both W->l nu Np1
+# XS = 0.9962 K = 1.26
+Weight.Source.107101: 125.5212
+#
+#
+# 107102 WW, both W->l nu Np2
+# XS = 0.4547 K = 1.26
+Weight.Source.107102: 57.2922
+#
+#
+# 107103 WW, both W->l nu Np3
+# XS = 0.1758 K = 1.26
+Weight.Source.107103: 22.1508
+#
+#
+# 107104 WZ, W->incl., Z->ll Np0
+# XS = 0.6718 K = 1.28
+Weight.Source.107104: 85.9904
+#
+#
+# 107105 WZ, W->incl., Z->ll Np1
+# XS = 0.4138 K = 1.28
+Weight.Source.107105: 52.9664
+#
+#
+# 107106 WZ, W->incl., Z->ll Np2
+# XS = 0.2249 K = 1.28
+Weight.Source.107106: 28.7872
+#
+#
+# 107107 WZ, W->incl., Z->ll Np3
+# XS = 0.0950 K = 1.28
+Weight.Source.107107: 12.16
+#
+#
+# 107108 ZZ, Z->incl., Z->ll Np0
+# XS = 0.5086 K = 1.30
+Weight.Source.107108: 66.118
+#
+#
+# 107109 ZZ, Z->incl., Z->ll Np1
+# XS = 0.2342 K = 1.30
+Weight.Source.107109: 30.446
+#
+#
+# 107110 ZZ, Z->incl., Z->ll Np2
+# XS = 0.0886 K = 1.30
+Weight.Source.107110: 11.518
+#
+#
+# 107111 ZZ, Z->incl., Z->ll Np3
+# XS = 0.0314 K = 1.30
+Weight.Source.107111: 4.082
+#
+#
+# 117193 wtdilep_ISRFSRMore AcerMC + PY
+# XS = 1.65 K = 1.0
+Weight.Source.117193: 165.00000
+#
+#
+# 117194 wtdilep_ISRFSRLess AcerMC + PY
+# XS = 1.65 K = 1.0
+Weight.Source.117194: 165.00000
+#
+# 117209 NoFullHadISRFSRMore
+# XS = 58.23 K = 1.53
+Weight.Source.117209: 8909.19000
+#
+#
+# 117210 NoFullHadISRFSRLess
+# XS = 58.23 K = 1.53
+Weight.Source.117210: 8909.19000
+#
+

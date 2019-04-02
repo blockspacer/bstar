@@ -1,0 +1,359 @@
+/******************************************************************************
+ * Wt.cpp                                                                     *
+ *                                                                            *
+ * Top Level file in analysis package                                         *
+ * Drives the package                                                         *
+ *                                                                            *
+ * This file is the main file which will loop over all of the events, make    *
+ * cuts and generate histograms.                                              *
+ *                                                                            *
+ * For general information on the analysis package as a whole, see            *
+ * https://hep.pa.msu.edu/twiki/bin/view/AtlasSingleTop/HowToUseTheAnalysisFramework *
+ *                                                                            *
+ * Modifications:                                                             *
+ *   7 Dec 2010 - J. Koll, modify first version from Zee analysis         *
+ *****************************************************************************/
+#define Global_cxx
+#include "SingleTopRootAnalysis/Base/Dictionary/AnalysisMain.hpp"
+#include <iostream>
+#include <string>
+
+// Include histogramming classes
+#include "SingleTopRootAnalysis/Cuts/Weights/EventWeight.hpp"
+#include "SingleTopRootAnalysis/Histogramming/Recon/HistogrammingElectron.hpp"
+#include "SingleTopRootAnalysis/Histogramming/Recon/HistogrammingMuon.hpp"
+#include "SingleTopRootAnalysis/Histogramming/Recon/HistogrammingTau.hpp"
+#include "SingleTopRootAnalysis/Histogramming/Recon/HistogrammingMET.hpp"
+#include "SingleTopRootAnalysis/Histogramming/Recon/HistogrammingJet.hpp"
+#include "SingleTopRootAnalysis/Histogramming/Recon/HistogrammingTaggedJet.hpp"
+#include "SingleTopRootAnalysis/Histogramming/Recon/HistogrammingUnTaggedJet.hpp"
+#include "SingleTopRootAnalysis/Histogramming/Recon/HistogrammingZmumu.hpp"
+//#include "SingleTopRootAnalysis/Histogramming/Truth/HistogrammingMCParticle.hpp"
+//#include "SingleTopRootAnalysis/Histogramming/Truth/HistogrammingMCElectron.hpp"
+//#include "SingleTopRootAnalysis/Histogramming/Truth/HistogrammingMCMuon.hpp"
+//#include "SingleTopRootAnalysis/Histogramming/Truth/HistogrammingMCTau.hpp"
+//#include "SingleTopRootAnalysis/Histogramming/Truth/HistogrammingMCJet.hpp"
+//#include "SingleTopRootAnalysis/Histogramming/Truth/HistogrammingMCTop.hpp"
+//#include "SingleTopRootAnalysis/Histogramming/Truth/HistogrammingMCW.hpp"
+//#include "SingleTopRootAnalysis/Histogramming/Truth/HistogrammingMCBQuark.hpp"
+//#include "SingleTopRootAnalysis/Histogramming/Truth/HistogrammingMCCQuark.hpp"
+
+
+// Include cuts classes
+#include "SingleTopRootAnalysis/Cuts/Other/CutBasic.hpp"
+#include "SingleTopRootAnalysis/Cuts/Jet/CutJetN.hpp"
+#include "SingleTopRootAnalysis/Cuts/TaggedJet/CutTaggedJetPt1.hpp"
+#include "SingleTopRootAnalysis/Cuts/TaggedJet/CutTaggedJetEta1.hpp"
+#include "SingleTopRootAnalysis/Cuts/Other/CutMissingEt.hpp"
+#include "SingleTopRootAnalysis/Cuts/Trigger/CutTriggerOR.hpp"
+#include "SingleTopRootAnalysis/Cuts/Muon/CutMuonN.hpp"
+#include "SingleTopRootAnalysis/Cuts/Electron/CutElectronN.hpp"
+#include "SingleTopRootAnalysis/Cuts/Electron/CutElectronTriggerMatch.hpp"
+#include "SingleTopRootAnalysis/Cuts/TaggedJet/CutTaggedJetN.hpp"
+#include "SingleTopRootAnalysis/Cuts/Other/CutTriangularWtMET.hpp"
+#include "SingleTopRootAnalysis/Histogramming/Topological/HistogrammingWtDiLepTopology.hpp"
+#include "SingleTopRootAnalysis/Cuts/Other/CutDecisionTree.hpp"
+#include "SingleTopRootAnalysis/Cuts/Other/CutMVATriggerMatch.hpp"
+#include "SingleTopRootAnalysis/Cuts/Other/CutMVATriggerSelection.hpp"
+
+#include "SingleTopRootAnalysis/Cuts/Other/CutZveto.hpp"
+#include "SingleTopRootAnalysis/Cuts/Other/CutTriggerSelection.hpp"
+
+#include "SingleTopRootAnalysis/Cuts/Other/CutBkgdTriggerMatch.hpp"
+#include "SingleTopRootAnalysis/Cuts/Other/CutBkgdTriggerSelection.hpp"
+
+#include "SingleTopRootAnalysis/Cuts/Other/CutLeptonTight.hpp"
+#include "SingleTopRootAnalysis/Cuts/Electron/CutElectronQuality.hpp"
+
+#include "SingleTopRootAnalysis/Cuts/Other/CutSumEt.hpp"
+#include "SingleTopRootAnalysis/Cuts/Other/CutHFOR.hpp"
+
+#include "SingleTopRootAnalysis/Base/CutFlow/CutListProcessor.hpp"
+#include "SingleTopRootAnalysis/Cuts/Other/CutBadPileupEvent.hpp"
+#include "SingleTopRootAnalysis/Cuts/Other/CutEMuOverlap.hpp"
+#include "SingleTopRootAnalysis/Histogramming/Topological/HistogrammingWtDiLepTopology.hpp"
+
+
+using std::cout;
+using std::endl;
+
+/******************************************************************************
+ * int main(int argc, char **argv)                                            *
+ *                                                                            *
+ * Main Routine                                                               *
+ *                                                                            *
+ * Input:  Command line arguements                                            *
+ * Output: Returns 0 of successful                                            *
+ ******************************************************************************/
+// Only declare main if not in CINT (not interactive?)
+#ifndef __CINT__
+int main(int argc, char **argv) 
+#endif
+{
+  cout << "<driver> Starting parton_analysis" << endl;
+  gROOT->ProcessLine("#include <vector>");
+  /////////////////////////////////////////////////////////////////////////////////
+  // Decleartions and Instantiations
+  /////////////////////////////////////////////////////////////////////////////////
+  // Instantiate the analysis class
+  AnalysisMain mystudy;
+   TChain *chainReco       = new TChain("LooseTopInputsTree");
+   cout<<"USING THE LOOSE TOPINPUTS TREE"<<endl;
+  TChain *chainTruth      = new TChain("TruthTree");
+  TChain *chainTrigger    = new TChain("TriggerTree");
+  TChain *chainInfo       = new TChain("InfoTree");
+  TChain *chainDecision       = new TChain("DecisionTree");
+  TChain *chainFastSim    = new TChain("FastSimTree");
+
+ 
+ // Check command line for Fast Running
+  // In Fast Running only a few cuts are made and histograms filled
+  Bool_t doFast = kFALSE;
+  string mcStr="";
+  for (int i = 1; i < argc; ++i) {
+    //cout<<"Command line parameter "<<i<<" is "<<argv[i]<<endl;
+    if (!strcmp(argv[i], "-fast")) {
+      doFast = kTRUE;
+      cout << "Driver: Fast running " << endl;
+    }//if fast
+    if (!strcmp(argv[i], "-MCatNLO")) {
+      mcStr="MCatNLO";
+      cout << "Driver: This is MCatNLO " << endl;
+      //Number of total events automatically includes the number with MCatNLO weights, but the events themselves will not be weighted in current code version unless this flag is called
+    }//if MCatNLO
+    /*    if (!strcmp(argv[i],"-MVATreeName")){
+      // Check if MVATree is specified.  
+      if (argc < i+1) {
+	cout << "<AnalysisMain::ParseCmdLine> " << "ERROR: Missing Value for tree name for multivariate variables -MVATree!" << endl;
+	return 1;
+      } //if
+      mystudy.SetMVATreeName(argv[i+1]);
+    }// if MVATreeName
+    */
+    if (!strcmp(argv[i],"-BkgdTreeName")){
+      // Check if BkgdTree is specified.  
+      if (argc < i+1) {
+	cout << "<AnalysisMain::ParseCmdLine> " << "ERROR: Missing Value for tree name for multivariate variables -BkgdTree!" << endl;
+	return 1;
+      } //if
+      mystudy.SetBkgdTreeName(argv[i+1]);
+    }// if BkgdTreeName
+  } // for
+  //  TChain *chainMVA = new TChain(mystudy.GetMVATreeName());//if nothing specified on commandline, this is just a "" string, which is ok if you don't want to use this chain (don't want a tree of multivariate variables).
+  TChain *chainBkgd = new TChain(mystudy.GetBkgdTreeName());//if nothing specified on commandline, this is just a "" string, which is ok if you don't want to use this chain (don't want a tree of multivariate variables).
+
+  //////////////////////////////////////////////////////////////////////////////////
+  // Parse the Command Line (the rest of it)
+  //////////////////////////////////////////////////////////////////////////////////
+  Int_t parseReturnValue = mystudy.ParseCmdLine(argc,argv,chainReco,chainTruth,chainTrigger,chainInfo,chainDecision, chainFastSim,chainBkgd);
+  if(parseReturnValue != 0) return parseReturnValue;
+  /////////////////////////////////////////////////////////////////////////////////
+  // Define a Particle class to be the same as the AnalysisMain class
+  /////////////////////////////////////////////////////////////////////////////////
+  EventContainer *particlesObj = &mystudy;
+  
+  /////////////////////////////////////////////////////////////////////////////////
+  // Add Cuts and Histograms applicable to Fast and Full Analyses
+  /////////////////////////////////////////////////////////////////////////////////
+  // ******** Cuts and Histograms applied to all studies ********
+    // First always add the EventWeight
+  //Uses MCatNLO events.  If want to not use MCatNLO weights, can add a method to analysis main to grab the _totalEvents value, which is also printed out to the log file/screen.
+  
+  if(mystudy.runNumber == 105802)  mystudy.AddCut(new EventWeight(particlesObj,38943680, mcStr)); // temporay solution for JF17 event weights
+  else mystudy.AddCut(new EventWeight(particlesObj,mystudy.GetTotalMCatNLOEvents(), mcStr));
+  cout << " Total number of events before any selection: " << mystudy.GetTotalMCatNLOEvents() << endl; 
+
+
+  mystudy.AddCut(new CutHFOR(particlesObj));
+  mystudy.AddCut(new CutBadPileupEvent(particlesObj));//nessesary to remove some bad pileup due to minbias event issue
+
+//   mystudy.AddCut(new CutDecisionTree(particlesObj,mystudy.GetBkgdTreeName().Remove(mystudy.GetBkgdTreeName().Index("Tree"))));//want branch name in DecisionTree to cut on
+   // mystudy.AddCut(new CutDecisionTree(particlesObj,mystudy.GetMVATreeName().Remove(mystudy.GetMVATreeName().Index("Tree"))));//want branch name in DecisionTree to cut on
+   //   mystudy.AddCut(new CutBkgdTriggerMatch(particlesObj));
+//   mystudy.AddCut(new CutElectronQuality(particlesObj, "Tight"));
+//     mystudy.AddCut(new CutBkgdTriggerSelection(particlesObj));
+
+  mystudy.AddCut(new CutEMuOverlap(particlesObj));
+  mystudy.AddCut(new CutTriggerSelection(particlesObj));
+  
+   //  mystudy.AddCut(new CutLeptonTight(particlesObj));
+
+  // mystudy.AddCut(new CutTriangularWtMET(particlesObj));
+
+   // Histograms: Some MC particle properties
+    //mystudy.AddCut(new HistogrammingMCParticle(particlesObj));
+    // Histograms: Some MC Electron properties
+    //mystudy.AddCut(new HistogrammingMCElectron(particlesObj));
+    // Histograms: Some MC Muon properties
+    //mystudy.AddCut(new HistogrammingMCMuon(particlesObj));
+    // Histograms: Some MC jet properties
+    //mystudy.AddCut(new HistogrammingMCJet(particlesObj));
+    // Histograms: MCTop Properties--not often used
+    // mystudy.AddCut(new HistogrammingMCTop(particlesObj));
+    // Histograms: MCW Properties--not often used
+    // mystudy.AddCut(new HistogrammingMCW(particlesObj));
+     // Histograms: MCTau Properties
+    //mystudy.AddCut(new HistogrammingMCTau(particlesObj));
+     // Histograms: MCBQuark Properties
+    //mystudy.AddCut(new HistogrammingMCBQuark(particlesObj));
+     // Histograms: MCCQuark Properties
+    //mystudy.AddCut(new HistogrammingMCCQuark(particlesObj));
+  
+    // Histograms: Muon Properties
+
+    mystudy.AddCut(new HistogrammingMuon(particlesObj, "All"));
+    mystudy.AddCut(new HistogrammingMuon(particlesObj, "Tight"));
+    // Histograms: Jet Properties 
+    mystudy.AddCut(new HistogrammingJet(particlesObj));
+    // Histograms: b-Tagged Jet Properties 
+    mystudy.AddCut(new HistogrammingTaggedJet(particlesObj));
+    // Histograms: Tau Properties
+//    mystudy.AddCut(new HistogrammingTau(particlesObj));
+    // Histograms: MET
+    mystudy.AddCut(new HistogrammingMET(particlesObj));
+  
+      
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//    // ******** Lepton Cuts ********
+    // Cut: Number of Tight Muons
+    mystudy.AddCut(new CutMuonN(particlesObj, "Tight"));//require that lepton to be isolated, central, high pt
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Histograms: Muon Properties
+    mystudy.AddCut(new HistogrammingMuon(particlesObj, "All"));
+    mystudy.AddCut(new HistogrammingMuon(particlesObj, "Tight"));
+    // Histograms: Jet Properties 
+    mystudy.AddCut(new HistogrammingJet(particlesObj));
+    // Histograms: b-Tagged Jet Properties 
+    mystudy.AddCut(new HistogrammingTaggedJet(particlesObj));
+    // Histograms: Tau Properties
+//    mystudy.AddCut(new HistogrammingTau(particlesObj));
+    // Histograms: MET
+    mystudy.AddCut(new HistogrammingMET(particlesObj));
+
+    // Histograms: Zmumu
+    mystudy.AddCut(new HistogrammingZmumu(particlesObj, "Tight"));
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // ******** Jet Cuts ********
+    // Cut: Number of Jets that don't overlap with muons
+    mystudy.AddCut(new CutJetN(particlesObj));
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Histograms: Muon Properties
+    mystudy.AddCut(new HistogrammingMuon(particlesObj, "All"));
+    mystudy.AddCut(new HistogrammingMuon(particlesObj, "Tight"));
+    // Histograms: Jet Properties 
+    mystudy.AddCut(new HistogrammingJet(particlesObj));
+    // Histograms: b-Tagged Jet Properties 
+    mystudy.AddCut(new HistogrammingTaggedJet(particlesObj));
+    // Histograms: Tau Properties
+//    mystudy.AddCut(new HistogrammingTau(particlesObj));
+    // Histograms: MET
+    mystudy.AddCut(new HistogrammingMET(particlesObj));
+
+    // Histograms: Zmumu
+    mystudy.AddCut(new HistogrammingZmumu(particlesObj, "Tight"));
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // ******** Tagged Jet Cuts ********
+    // Cut: Number of Tagged Jets
+    // mystudy.AddCut(new CutTaggedJetN(particlesObj));
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // ******** Missing ET Cuts ********
+    // Cut: Missing Et (don't do for FastSim)
+    mystudy.AddCut(new CutMissingEt(particlesObj));
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Histograms: Muon Properties
+    mystudy.AddCut(new HistogrammingMuon(particlesObj, "All"));
+    mystudy.AddCut(new HistogrammingMuon(particlesObj, "Tight"));
+    // Histograms: Jet Properties 
+    mystudy.AddCut(new HistogrammingJet(particlesObj));
+    // Histograms: b-Tagged Jet Properties 
+    mystudy.AddCut(new HistogrammingTaggedJet(particlesObj));
+    // Histograms: Tau Properties
+//    mystudy.AddCut(new HistogrammingTau(particlesObj));
+    // Histograms: MET
+    mystudy.AddCut(new HistogrammingMET(particlesObj));
+
+    // Histograms: Zmumu
+    mystudy.AddCut(new HistogrammingZmumu(particlesObj, "Tight"));
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // ******** Z veto Cuts ********
+    mystudy.AddCut(new CutZveto(particlesObj, "Tight"));
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // ******** Tri angle Cuts ********
+    //mystudy.AddCut(new CutTriangularWtMET(particlesObj));
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // Cut: Tagged jet ET of Jet 1
+    //mystudy.AddCut(new CutTaggedJetPt1(particlesObj));
+    // Cut: Tagged jet eta of Jet 1
+    //mystudy.AddCut(new CutTaggedJetEta1(particlesObj));
+
+    // Cut: Number of Tight Muons
+    //mystudy.AddCut(new CutMuonN(particlesObj, "Tight"));//require that lepton to be isolated, central, high pt
+    
+     // ************** Trigger Selection ********************
+    // Cut: TriggerOR
+    //if(! mystudy.DoFastSim()) mystudy.AddCut(new CutTriggerOR(particlesObj,"NOTHINGPASSED"));
+//    mystudy.AddCut(new CutTriggerOR(particlesObj,"NOTHINGPASSED"));//NONE means no trigger
+//    mystudy.AddCut(new CutMuonTriggerMatch(particlesObj, "Tight"));
+   
+  /////////////////////////////////////////////////////////////
+  
+  //The following is for multivariate analysis studies, will soon be outdate,
+  //replaced with variables from a tree rather than calculated in another file
+
+  // Finally, make histograms of topological variables and write out
+  // a separate skim tree with them
+  // mystudy.AddCut(new HistogrammingTopology(particlesObj));
+   TFile *_skimBDTFile;
+   if (! mystudy.DoOnlyMVATree()){
+     TString BDTname = mystudy.GetHistogramFileName() + "skimBDT.root" ;
+     _skimBDTFile = new TFile(BDTname,"RECREATE"); 
+     mystudy.AddCut(new HistogrammingWtDiLepTopology(particlesObj, _skimBDTFile));
+     mystudy.AddCut(new HistogrammingWtDiLepTopology(particlesObj, _skimNNFile));
+   }
+
+  cout << "<driver> Starting Loop over events in chain" << endl << endl;
+  // Loop over events in chain
+  //Here is where the events are actually looped and the cuts and histograms above are made
+  mystudy.Loop();
+  cout << "<driver> Finished Loop over events in chain" << endl;
+
+  // Write output to files
+  cout << "<driver> " << "Writing histograms to file: " << mystudy.GetHistogramFileName() << endl;
+  
+  if (! mystudy.DoOnlyMVATree()){
+    _skimBDTFile->Write(); //need to uncomment
+    _skimBDTFile->Close();//need to uncomment
+  }
+  mystudy.Finish();
+  
+  // Delete chains and set pointers to NULL
+  cout << "<driver> Deleting chains" << endl;
+
+  if(chainReco)       delete chainReco;
+  if(chainTruth)      delete chainTruth;
+  if(chainTrigger)    delete chainTrigger;
+  if(chainInfo)       delete chainInfo;
+  if(chainDecision)       delete chainDecision;
+   if(chainFastSim)    delete chainFastSim;
+   //  if(chainMVA)    delete chainMVA;
+
+  //if(chainCollection) delete chainCollection;
+
+  chainReco       = NULL;
+  chainTruth      = NULL;
+  chainTrigger    = NULL;
+  chainInfo       = NULL;
+  chainDecision    = NULL;
+   chainFastSim    = NULL;
+   //  chainMVA    = NULL;
+  
+  cout << "<driver> Sucessful Completion." << endl;
+  return 0;
+}
