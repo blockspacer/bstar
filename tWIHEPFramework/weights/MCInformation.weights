@@ -1,0 +1,412 @@
+# Combining the MC information into a single configuration file, because it's way too complicated as it is. 
+# The Weight.Source.ID is now the cross section * BR only. Lumi is included as an additional variable in this file so that changes in lumi can be applied easily.
+# 5th July 2015 - Duncan Leggat
+#########################################
+#I will be using my own codes because what is a D3PD.
+#########################################
+
+# The luminosity of the sample to be processed. For some reason before it was already in all of the weights, which is not ideal.
+#Weight.Lumi: 27217.
+Weight.Lumi: 35900.
+
+# 100000 - tW_top_5fs inclusive
+Weight.Source.100000: 35.85
+Events.Source.100000: 1000000
+
+# 10001 - tW_antitop
+Weight.Source.100001: 35.6
+Events.Source.100001: 999400
+
+# 100002 - tChan
+Weight.Source.100002: 70.69
+Events.Source.100002: 19938230
+
+# 100003 - ttbar
+Weight.Source.100003: 831.76
+Events.Source.100003: 97907991
+
+# 100004 - zPlusJetsHighMass
+Weight.Source.100004: 6025.2
+Events.Source.100004: 29067019
+
+# 100005 - zPlusJetsLowMass
+Weight.Source.100005: 18610.
+Events.Source.100005: 30899063
+
+# 100006 - wPlusJets
+Weight.Source.100006: 20508.9
+Events.Source.100006: 47161328
+
+#100007 - WW
+Weight.Source.100007: 118.7
+Events.Source.100007: 988418
+
+#100008 - WZ
+Weight.Source.100008: 66.1
+Events.Source.100008: 1000000
+
+#100009 - ZZ
+Weight.Source.100009: 31.8
+Events.Source.100009: 985600
+
+#100010 - sChan
+Weight.Source.100010: 3.36
+Events.Source.100010: 998400
+
+#100011 - qcd100_200
+Weight.Source.100011: 27990000.
+Events.Source.100011: 82095800
+
+#100012 - qcd200_300
+Weight.Source.100012: 1712000.
+Events.Source.100012: 18784379
+
+#100013 - qcd300_500
+Weight.Source.100013: 347700.
+Events.Source.100013: 16909004
+
+#100014 - qcd500_700
+Weight.Source.100014: 32100.
+Events.Source.100014: 19294591
+
+#100015 - qcd700_1000
+Weight.Source.100015: 6831.
+Events.Source.100015: 15531969
+
+#100016 - qcd1000_1500
+Weight.Source.100016: 1207.
+Events.Source.100016: 5000610
+
+#100017 - qcd1500_2000
+Weight.Source.100017: 119.9
+Events.Source.100017: 2711608
+
+#100018 - qcd2000_inf
+Weight.Source.100018: 25.24
+Events.Source.100018: 721306
+
+#100019 - wPlusJetsMCatNLO
+Weight.Source.100019: 20508.9
+Events.Source.100019: 24156124
+
+# 300000 - tW_top_5fs inclusive
+Weight.Source.300000: 35.85
+Events.Source.300000: 998400
+
+# 30001 - tW_antitop
+Weight.Source.300001: 35.6
+Events.Source.300001: 985000
+
+# 300002 - tChan
+Weight.Source.300002: 70.69
+Events.Source.300002: 19938230
+
+# 300003 - ttbar
+Weight.Source.300003: 831.76
+Events.Source.300003: 14803800
+
+# 300004 - zPlusJetsHighMass
+Weight.Source.300004: 6025.2
+Events.Source.300004: 28730591
+
+# 300005 - zPlusJetsLowMass
+Weight.Source.300005: 18610.
+Events.Source.300005: 30915886
+
+# 300006 - wPlusJets
+Weight.Source.300006: 20508.9
+Events.Source.300006: 47161328
+
+#300007 - WW
+Weight.Source.300007: 118.7
+Events.Source.300007: 993214
+
+#300008 - WZ
+Weight.Source.300008: 66.1
+Events.Source.300008: 1000000
+
+#300009 - ZZ
+Weight.Source.300009: 31.8
+Events.Source.300009: 989312
+
+#300010 - sChan
+Weight.Source.300010: 3.36
+Events.Source.300010: 1000000
+
+#300011 - qcd100_200
+Weight.Source.300011: 27990000.
+Events.Source.300011: 82073090
+
+#300012 - qcd200_300
+Weight.Source.300012: 1712000.
+Events.Source.300012: 18523829
+
+#300013 - qcd300_500
+Weight.Source.300013: 347700.
+Events.Source.300013: 16830696
+
+#300014 - qcd500_700
+Weight.Source.300014: 32100.
+Events.Source.300014: 19199088
+
+#300015 - qcd700_1000
+Weight.Source.300015: 6831.
+Events.Source.300015: 15621634
+
+#300016 - qcd1000_1500
+Weight.Source.300016: 1207.
+Events.Source.300016: 4980387
+
+#300017 - qcd1500_2000
+Weight.Source.300017: 119.9
+Events.Source.300017: 3846616
+
+#300018 - qcd2000_inf
+Weight.Source.300018: 25.24
+Events.Source.300018: 1960245
+
+#300019 - wPlusJetsMCatNLO
+Weight.Source.300019: 20508.9
+Events.Source.300019: 9908534
+
+#300020 - tChan_antitop
+Weight.Source.300020: 80.95
+Events.Source.300020: 19825855
+
+#300021- tChan_top
+Weight.Source.300021: 136.02
+Events.Source.300021: 32808300
+
+# 500000 - tW_top_5fs inclusive
+Weight.Source.500000: 35.85
+Events.Source.500000: 992024
+
+# 50001 - tW_antitop
+Weight.Source.500001: 35.85
+Events.Source.500001: 998276
+
+# 500002 - tChan
+Weight.Source.500002: 70.69
+Events.Source.500002: 19938230
+
+# 500003 - ttbar
+Weight.Source.500003: 831.76
+Events.Source.500003: 9885256
+
+# 500004 - zPlusJetsHighMass
+Weight.Source.500004: 6025.2
+Events.Source.500004: 49144274
+
+# 500005 - zPlusJetsLowMass
+Weight.Source.500005: 18610.
+Events.Source.500005: 30920596
+
+# 500006 - wPlusJetsMadgraph
+Weight.Source.500006: 20508.9
+Events.Source.500006: 29705748
+
+#500007 - WW
+Weight.Source.500007: 118.7
+Events.Source.500007: 994012
+
+#500008 - WZ
+Weight.Source.500008: 66.1
+Events.Source.500008: 1000000
+
+#500009 - ZZ
+Weight.Source.500009: 31.8
+Events.Source.500009: 990064
+
+#500010 - sChan
+Weight.Source.500010: 3.36
+Events.Source.500010: 1000000
+
+#500011 - qcd100_200
+Weight.Source.500011: 27990000.
+Events.Source.500011: 80684349
+
+#500012 - qcd200_300
+Weight.Source.500012: 1712000.
+Events.Source.500012: 18722416
+
+#500013 - qcd300_500
+Weight.Source.500013: 347700.
+Events.Source.500013: 17035891
+
+#500014 - qcd500_700
+Weight.Source.500014: 32100.
+Events.Source.500014: 18929951
+
+#500015 - qcd700_1000
+Weight.Source.500015: 6831.
+Events.Source.500015: 15629253
+
+#500016 - qcd1000_1500
+Weight.Source.500016: 1207.
+Events.Source.500016: 4767100
+
+#500017 - qcd1500_2000
+Weight.Source.500017: 119.9
+Events.Source.500017: 3970819
+
+#500018 - qcd2000_inf
+Weight.Source.500018: 25.24
+Events.Source.500018: 1991645
+
+#500019 - wPlusJetsMCatNLO
+Weight.Source.500019: 20508.9
+Events.Source.500019: 24120319
+
+#500020 - tChan_antitop
+Weight.Source.500020: 80.95
+Events.Source.500020: 38811017
+
+#500021- tChan_top
+Weight.Source.500021: 136.02
+Events.Source.500021: 67240808
+
+#500022 - tW_top synch
+Weight.Source.500022: 35.85
+Events.Source.500022: 77791
+
+#500023 = ttbar synch file
+Weight.Source.500023: 831.76
+Events.Source.500023: 47259
+
+#500024 = update ttbar files
+Weight.Source.500024: 831.76
+Events.Source.500024: 155235652
+
+#500025 = second ttbar dataset
+Weight.Source.500025: 831.76
+Events.Source.500025: 155235652
+
+#500026 = not fully hadronic tW
+Weight.Source.500026: 19.559
+Events.Source.500026: 11345619
+
+#500027 = not fully hadronic tW_antitop
+Weight.Source.500027: 19.559
+Events.Source.500027: 11408144
+
+#700000 - systematic samples
+
+#700000 = tW_antitop_DS
+Weight.Source.700000: 19.559
+Events.Source.700000: 3257313
+
+#700001 = tW_antitop_isrup
+Weight.Source.700001: 19.559
+Events.Source.700001: 3076356
+
+#700002 = tW_antitop_isrdown
+Weight.Source.700002: 19.559
+Events.Source.700002: 3101414
+
+#700003 = tW_antitop_fsrup
+Weight.Source.700003: 19.559
+Events.Source.700003: 3001597
+
+#700004 = tW_antitop_fsrdown
+Weight.Source.700004: 19.559
+Events.Source.700004: 3235062
+
+#700005 = tW_antitop_herwig
+Weight.Source.700005: 19.559
+Events.Source.700005: 3216427
+
+#700006 = tW_antitop_MEup
+Weight.Source.700006: 19.559
+Events.Source.700006: 1607001
+
+#700007 = tW_antitop_MEdown
+Weight.Source.700007: 19.559
+Events.Source.700007: 1575183
+
+#700008 = tW_antitop_PSup
+Weight.Source.700008: 19.559
+Events.Source.700008: 1628527
+
+#700009 = tW_antitop_PSdown
+Weight.Source.700009: 19.559
+Events.Source.700009: 1628344
+
+#700010 = tW_top_DS
+Weight.Source.700010: 19.559
+Events.Source.700010: 3192627
+
+#700011 = tW_top_isrup
+Weight.Source.700011: 19.559
+Events.Source.700011: 3129831
+
+#700012 = tW_top_isrdown
+Weight.Source.700012: 19.559
+Events.Source.700012: 3201658
+
+#700013 = tW_top_fsrup
+Weight.Source.700013: 19.559
+Events.Source.700013: 3212416
+
+#700014 = tW_top_fsrdown
+Weight.Source.700014: 19.559
+Events.Source.700014: 2975405
+
+#700015 = tW_top_herwig
+Weight.Source.700015: 19.559
+Events.Source.700015: 3201087
+
+#7000016 = tW_top_MEup
+Weight.Source.7000016: 19.559
+Events.Source.7000016: 3188774
+
+#700017 = tW_top_MEdown
+Weight.Source.700017: 19.559
+Events.Source.700017: 3052085
+
+#700018 = tW_top_PSup
+Weight.Source.700018: 19.559
+Events.Source.700018: 3124934
+
+#700019 = tW_top_PSdown
+Weight.Source.700019: 19.559
+Events.Source.700019: 3181663
+
+#700020 = ttbar_isrup
+Weight.Source.700020: 831.76
+Events.Source.700020: 59033604
+
+#700021 = ttbar_isrdown
+Weight.Source.700021: 831.76
+Events.Source.700021: 29084029
+
+#700022 = ttbar_fsrup
+Weight.Source.700022: 831.76
+Events.Source.700022: 29777488
+
+#700023 = ttbar_fsrdown
+Weight.Source.700023: 831.76
+Events.Source.700023: 29716580
+
+#700024 = ttbar_tuneup
+Weight.Source.700024: 831.76
+Events.Source.700024: 29310620
+
+#700025 = ttbar_tunedown
+Weight.Source.700025: 831.76
+Events.Source.700025: 28354188
+
+#700026 = ttbar_herwig
+Weight.Source.700026: 831.76
+Events.Source.700026: 29412687
+
+#700027 = ttbar_amcatnlo
+Weight.Source.700027: 831.76
+Events.Source.700027: 43561608
+
+#700028 = ttbar_hdampup
+Weight.Source.700028: 831.76
+Events.Source.700028: 29689380
+
+#700029 = ttbar_hdampdown
+Weight.Source.700029: 831.76
+Events.Source.700029: 29117820

@@ -1,0 +1,299 @@
+# Combining the MC information into a single configuration file, because it's way too complicated as it is. 
+# The Weight.Source.ID is now the cross section * BR only. Lumi is included as an additional variable in this file so that changes in lumi can be applied easily.
+# 5th July 2015 - Duncan Leggat
+#########################################
+#I will be using my own codes because what is a D3PD.
+#########################################
+
+# The luminosity of the sample to be processed. For some reason before it was already in all of the weights, which is not ideal.
+#Weight.Lumi: 27217.
+Weight.Lumi: 35600.
+
+#500000-WJets 
+Weight.Source.500000: 61526.7
+Events.Source.500000: 28862938.0
+
+#500001-qcd100_200 
+Weight.Source.500001: 28060000.0 
+Events.Source.500001: 80401928.0
+
+# 500002 - qcd200_300
+Weight.Source.500002: 1710000.0
+Events.Source.500002: 18240205.0
+
+# 500003 -qcd300_500 
+Weight.Source.500003:347500.0 
+Events.Source.500003:16377534.0 
+
+# 500004 -QCDHT500To700 
+Weight.Source.500004: 32060.0
+Events.Source.500004: 18929951.0
+
+# 500005 - QCDHT700To1000
+Weight.Source.500005:6829.0 
+Events.Source.500005: 15629253.0
+
+# 500006 -QCDHT1000To1500 
+Weight.Source.500006:1207.0 
+Events.Source.500006: 4604340.0
+
+#500007 -QCDHT1500To2000 
+Weight.Source.500007:120.0 
+Events.Source.500007: 3813022.0
+
+#500008 -QCDHT2000ToInf 
+Weight.Source.500008:25.25
+Events.Source.500008: 522392.0
+
+#500009 - RH_1200 
+Weight.Source.500009:1.936 
+Events.Source.500009: 100000.0
+
+#500010 - RH_1400 
+Weight.Source.500010:0.7816 
+Events.Source.500010:99800.0
+
+#500011 - RH_1600 
+Weight.Source.500011:0.3416 
+Events.Source.500011: 99200.0
+
+#500012 - RH_1800 
+Weight.Source.500012:0.1583 
+Events.Source.500012: 97600.0
+
+#500013 - RH_2000 
+Weight.Source.500013:0.07675 
+Events.Source.500013: 100000.0
+
+#500014 -RH_2200 
+Weight.Source.500014:0.03864 
+Events.Source.500014: 100000.0
+
+#500015 -RH_2400 
+Weight.Source.500015:0.02008 
+Events.Source.500015: 100000.0
+
+#500016 -RH_2600 
+Weight.Source.500016:0.01068 
+Events.Source.500016: 100000.0
+
+#500017 -RH_2800 
+Weight.Source.500017:0.005814 
+Events.Source.500017: 99936 
+
+#500018 - RH_3000 
+Weight.Source.500018:0.003224 
+#Events.Source.500018: 99936.0
+Events.Source.500018: 50000.0
+
+#500019 -TT 
+Weight.Source.500019:831.76 
+Events.Source.500019: 76706778
+
+#500020-WZ 
+Weight.Source.500020:47.13 
+Events.Source.500020: 1000000
+
+#500021-ZZ 
+Weight.Source.500021:16.523 
+Events.Source.500021: 990064
+
+#500022-ST 
+Weight.Source.500022:35.6 
+Events.Source.500022: 992024
+
+#500023-SaT 
+Weight.Source.500023:35.6 
+Events.Source.500023: 998276
+
+#500024-WW 
+Weight.Source.500024:118.70838
+Events.Source.500024:6987124
+
+#500025-QCD_Pt_15to30
+Weight.Source.500025: 1820000000.0 
+Events.Source.500025: 39555794
+#
+## 500026 - QCD_Pt_30to50
+Weight.Source.500026: 138900000.0 
+Events.Source.500026: 9979945
+
+#
+## 500027 -QCD_Pt_50to80
+Weight.Source.500027: 19100000.0
+Events.Source.500027: 9954259
+
+#
+## 500028 -QCD_Pt_80to120
+Weight.Source.500028: 2735000.0 
+Events.Source.500028: 14595366 #6986638+7608728
+#
+## 500029 -QCD_Pt_120to170 
+Weight.Source.500029: 467500.0
+Events.Source.500029: 12457117 #6708462+5748655
+#
+## 500030 -QCD_Pt_170to300
+Weight.Source.500030: 117400.0
+Events.Source.500030: 14796392  #6958526+7837866
+#
+##500031 -QCD_Pt_300to470
+Weight.Source.500031: 7753.0	
+Events.Source.500031: 22402133 #4150323+18251810
+#
+##500032 -QCD_Pt_470to600
+Weight.Source.500032: 642.1
+Events.Source.500032: 3959379
+##500033 -QCD_Pt_600to800
+Weight.Source.500033: 185.9
+Events.Source.500033: 13515776 #3895383+9620393
+#
+## 500034 -QCD_Pt_800to1000ext
+Weight.Source.500034: 32.05
+Events.Source.500034: 20001796 #3990472+16011324
+##
+### 500035 QCD_Pt_1000to1400
+Weight.Source.500035: 9.365
+Events.Source.500035: 10053389 #3021028+7032361
+##
+### 500036 QCD_Pt_1400to1800 
+Weight.Source.500036: 0.8398
+Events.Source.500036: 2899167 #396010+2503157
+##
+### 500037 -QCD_Pt_1800to2400
+Weight.Source.500037: 0.1124
+Events.Source.500037: 1974742 #397083+1577659
+##
+###500038 -QCD_Pt_2400to3200
+Weight.Source.500038: 0.006752
+Events.Source.500038: 1010474 #410333+600141
+##
+###500039 -QCD_Pt_3200toInf
+Weight.Source.500039: 0.0001626
+Events.Source.500039: 390798
+
+
+####500040 -WJetsToQQ_HT-600ToInf
+Weight.Source.500040: 99.65
+Events.Source.500040: 1026517
+
+#700000 - systematic samples
+
+#700000 = tW_antitop_DS
+Weight.Source.700000: 19.559
+Events.Source.700000: 3257313
+
+#700001 = tW_antitop_isrup
+Weight.Source.700001: 19.559
+Events.Source.700001: 3076356
+
+#700002 = tW_antitop_isrdown
+Weight.Source.700002: 19.559
+Events.Source.700002: 3101414
+
+#700003 = tW_antitop_fsrup
+Weight.Source.700003: 19.559
+Events.Source.700003: 3001597
+
+#700004 = tW_antitop_fsrdown
+Weight.Source.700004: 19.559
+Events.Source.700004: 3235062
+
+#700005 = tW_antitop_herwig
+Weight.Source.700005: 19.559
+Events.Source.700005: 3216427
+
+#700006 = tW_antitop_MEup
+Weight.Source.700006: 19.559
+Events.Source.700006: 1607001
+
+#700007 = tW_antitop_MEdown
+Weight.Source.700007: 19.559
+Events.Source.700007: 1575183
+
+#700008 = tW_antitop_PSup
+Weight.Source.700008: 19.559
+Events.Source.700008: 1628527
+
+#700009 = tW_antitop_PSdown
+Weight.Source.700009: 19.559
+Events.Source.700009: 1628344
+
+#700010 = tW_top_DS
+Weight.Source.700010: 19.559
+Events.Source.700010: 3192627
+
+#700011 = tW_top_isrup
+Weight.Source.700011: 19.559
+Events.Source.700011: 3129831
+
+#700012 = tW_top_isrdown
+Weight.Source.700012: 19.559
+Events.Source.700012: 3201658
+
+#700013 = tW_top_fsrup
+Weight.Source.700013: 19.559
+Events.Source.700013: 3212416
+
+#700014 = tW_top_fsrdown
+Weight.Source.700014: 19.559
+Events.Source.700014: 2975405
+
+#700015 = tW_top_herwig
+Weight.Source.700015: 19.559
+Events.Source.700015: 3201087
+
+#7000016 = tW_top_MEup
+Weight.Source.7000016: 19.559
+Events.Source.7000016: 3188774
+
+#700017 = tW_top_MEdown
+Weight.Source.700017: 19.559
+Events.Source.700017: 3052085
+
+#700018 = tW_top_PSup
+Weight.Source.700018: 19.559
+Events.Source.700018: 3124934
+
+#700019 = tW_top_PSdown
+Weight.Source.700019: 19.559
+Events.Source.700019: 3181663
+
+#700020 = ttbar_isrup
+Weight.Source.700020: 831.76
+Events.Source.700020: 59033604
+
+#700021 = ttbar_isrdown
+Weight.Source.700021: 831.76
+Events.Source.700021: 29084029
+
+#700022 = ttbar_fsrup
+Weight.Source.700022: 831.76
+Events.Source.700022: 29777488
+
+#700023 = ttbar_fsrdown
+Weight.Source.700023: 831.76
+Events.Source.700023: 29716580
+
+#700024 = ttbar_tuneup
+Weight.Source.700024: 831.76
+Events.Source.700024: 29310620
+
+#700025 = ttbar_tunedown
+Weight.Source.700025: 831.76
+Events.Source.700025: 28354188
+
+#700026 = ttbar_herwig
+Weight.Source.700026: 831.76
+Events.Source.700026: 29412687
+
+#700027 = ttbar_amcatnlo
+Weight.Source.700027: 831.76
+Events.Source.700027: 43561608
+
+#700028 = ttbar_hdampup
+Weight.Source.700028: 831.76
+Events.Source.700028: 29689380
+
+#700029 = ttbar_hdampdown
+Weight.Source.700029: 831.76
+Events.Source.700029: 29117820

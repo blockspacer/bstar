@@ -1,0 +1,192 @@
+###############################################################################
+#
+# SingleTopWeights.1405006.config
+#
+# Object ID definitions for version 1551 of the analysis
+# No veto or tight objects in current selection
+#
+#NOTE: OVERLAP REMOVAL IS APPLIED HERE
+###############################################################################
+#
+#NOTE: No cuts mentioned here are actually implemented unless the cut is applied in your bin/example/test_analysis.cpp file.  These are just values to be used if the cuts happen to be called.
+######################Pileup##################
+Weight.Pileup.Data.File: externaltools/pileup/histograms/ilumicalc_histograms_None_178044-187815.root
+Weight.Pileup.MC.File: externaltools/pileup/histograms/mu_mc10b.root
+Weight.Pileup.MC.Hist: mu_mc10b
+Weight.Source.100000: 5.0
+
+###################Goodrunlist##################
+Cut.GoodRunList.Number:1 
+Cut.GoodRunList.1: externaltools/GRL/xmlfiles/Top_GRL_K.xml
+
+
+###################define if is bstar analysize##################
+ifbstar:1
+
+#------------------------------------------------------------------------------
+# B-tagging and JES settings: 0 shift will not apply a JES shift   JES.Type: lepPlusJets or diLepton
+#------------------------------------------------------------------------------
+ObjectID.JES.Type: diLepton
+ObjectID.DoJetReco:  0
+ObjectID.DoJER:  0
+ObjectID.cellout.Shift:  0
+ObjectID.softjet.Shift:  0
+ObjectID.pileup.Shift:  0
+
+ObjectID.JES.105200.diLepton: MJESttbarDi_rel16.root
+ObjectID.JES.105204.diLepton: MJESttbarDi_rel16.root
+ObjectID.JES.117366.diLepton: MJESsingletop_wtprod_rel16.root
+ObjectID.JES.105500.diLepton: MJESsingletop_wtprod_rel16.root
+ObjectID.JES.117360.diLepton: MJESsingletop_tchan_rel16.root
+ObjectID.JES.117361.diLepton: MJESsingletop_tchan_rel16.root
+ObjectID.JES.117362.diLepton: MJESsingletop_tchan_rel16.root
+ObjectID.JES.108346.diLepton: MJESsingletop_wtprod_rel16.root
+ObjectID.JES.108340.diLepton: MJESsingletop_tchan_rel16.root
+ObjectID.JES.108341.diLepton: MJESsingletop_tchan_rel16.root
+ObjectID.JES.108342.diLepton: MJESsingletop_tchan_rel16.root
+ObjectID.JES.default.diLepton: MJESttbarDi_rel16.root
+#
+ObjectID.JES.105200.lepPlusJets: MJESttbarSemi_rel16.root
+ObjectID.JES.105204.lepPlusJets: MJESttbarSemi_rel16.root
+ObjectID.JES.117360.lepPlusJets: MJESsingletop_tchan_rel16.root
+ObjectID.JES.117361.lepPlusJets: MJESsingletop_tchan_rel16.root
+ObjectID.JES.117362.lepPlusJets: MJESsingletop_tchan_rel16.root
+ObjectID.JES.117366.lepPlusJets: MJESsingletop_wtprod_rel16.root
+ObjectID.JES.105500.lepPlusJets: MJESsingletop_wtprod_rel16.root
+ObjectID.JES.108340.lepPlusJets: MJESsingletop_tchan_rel16.root
+ObjectID.JES.108341.lepPlusJets: MJESsingletop_tchan_rel16.root
+ObjectID.JES.108342.lepPlusJets: MJESsingletop_tchan_rel16.root
+ObjectID.JES.108346.lepPlusJets: MJESsingletop_wtprod_rel16.root
+ObjectID.JES.default.lepPlusJets: MJESttbarSemi_rel16.root
+
+ObjectID.JES.Error: 0
+ObjectID.JES.PtShift:  0
+ObjectID.JES.EtaShift:  0
+ObjectID.JES.PtLowShift:  0
+ObjectID.JES.PtHighShift:  0
+#Note that this cut is different from release to release.  This is the value for release 16.0.2.6
+ObjectID.BTAG.BTagAlgo: SV0
+ObjectID.BTAG.BTagCut: 5.85
+ObjectID.BTAG.MisTagCut: 5.85
+
+### only works for MC, and shift = 0(no change), -1(scale down), 1(scale up),others, no scale
+ObjectID.ElecEnergyScale.shift:  0
+### only works for MC, and shift = 0(no change), -1(smear down), 1(smear up), others, no smear
+ObjectID.ElecEnergySmear.shift:  0
+# True if you use a MC with constant term, set this parameter to false otherwise
+ObjectID.ElecEnergySmear.mcWithConstantTerm: True 
+#------------------------------------------------------------------------------
+# Electron: veto, tight, isolated, unisolated, all.  Currently using tight vector for main analysis
+#------------------------------------------------------------------------------
+ObjectID.Electron.Tight.MinPt: 25.0
+ObjectID.Electron.Tight.MaxEta: 2.4
+ObjectID.Electron.Tight.IsoAlgo: etcone20
+ObjectID.Electron.Tight.IsoCutEt: 0.15
+ObjectID.Electron.Tight.IsoCutPt: 0.10
+ObjectID.Electron.Tight.MinEtaGap: 1.4442
+ObjectID.Electron.Tight.MaxEtaGap: 1.566
+ObjectID.Electron.Tight.dZEndcap: 0.2
+ObjectID.Electron.Tight.dZBarrel: 0.1
+ObjectID.Electron.Tight.d0Endcap: 0.1
+ObjectID.Electron.Tight.d0Barrel: 0.05
+
+ObjectID.Electron.Veto.MaxEta: 0.0
+ObjectID.Electron.Veto.MinPt: 25.0
+#ObjectID.Electron.Veto.IsoAlgo: etcone20
+#ObjectID.Electron.Veto.IsoCut: 6.0
+#ObjectID.Electron.Veto.MinEtaGap: 1.37
+#ObjectID.Electron.Veto.MaxEtaGap: 1.52
+
+ObjectID.Electron.UnIsolated.MinPt: 30.0
+ObjectID.Electron.UnIsolated.MaxEta: 2.4
+ObjectID.Electron.UnIsolated.IsoAlgo: etcone20
+ObjectID.Electron.UnIsolated.IsoCutEt: 0.15
+ObjectID.Electron.UnIsolated.IsoCutPt: 0.10
+ObjectID.Electron.UnIsolated.MinEtaGap: 1.4442
+ObjectID.Electron.UnIsolated.MaxEtaGap: 1.566
+ObjectID.Electron.UnIsolated.dZEndcap: 0.2
+ObjectID.Electron.UnIsolated.dZBarrel: 0.1
+ObjectID.Electron.UnIsolated.d0Endcap: 0.1
+ObjectID.Electron.UnIsolated.d0Barrel: 0.05
+
+
+#------------------------------------------------------------------------------
+# Muon: veto, tight, isolated, unisolated, all.  Currently using tight vector for	main analysis
+#------------------------------------------------------------------------------
+ObjectID.Muon.Tight.MinPt: 50.0
+ObjectID.Muon.Tight.MaxEta: 2.1
+ObjectID.Muon.Tight.MaxRelIso: 100
+#ObjectID.Muon.Tight.JetDeltaRMin: 0.4
+#ObjectID.Muon.Tight.IsoAlgo: etcone20
+#ObjectID.Muon.Tight.IsoCutEt: 0.15
+#ObjectID.Muon.Tight.IsoCutPt: 0.10
+#ObjectID.Muon.Tight.Smear:  Noshift
+
+#UnIsolated muon definitions:
+ObjectID.Muon.UnIsolated.MinPt: 26.0
+ObjectID.Muon.UnIsolated.MaxEta: 2.1
+#ObjectID.Muon.UnIsolated.IsoAlgo: ptetcone30old
+#ObjectID.Muon.UnIsolated.IsoCutEt: 4.0
+#ObjectID.Muon.UnIsolated.IsoCutPt: 4.0
+ObjectID.Muon.UnIsolated.JetDeltaRMin: 0.4
+
+ObjectID.Muon.UnIsolated.MaxRelIso: 0.15
+
+ObjectID.Muon.UnIsolated.IsoAlgo: etcone20
+ObjectID.Muon.UnIsolated.IsoCutEt: 0.15
+ObjectID.Muon.UnIsolated.IsoCutPt: 0.10
+ObjectID.Muon.UnIsolated.Smear:  Noshift
+
+ObjectID.Muon.Veto.MinPt: 10.0
+ObjectID.Muon.Veto.MaxEta: 2.4
+
+#The lines below are for systematics only.  Comment out the noshift smear line above to do sysetmatics and uncomment a line below
+#ObjectID.Muon.Tight.Smear: MSUP
+#ObjectID.Muon.Tight.Smear: MSLOW
+#ObjectID.Muon.Tight.Smear: IDUP
+#ObjectID.Muon.Tight.Smear: IDLOW
+
+
+#ObjectID.Muon.Veto.MaxEta: 2.5
+#ObjectID.Muon.Veto.MinPt: 20.0
+#ObjectID.Muon.Veto.IsoAlgo: etcone30
+#ObjectID.Muon.Veto.IsoCut: 6.0
+#ObjectID.Muon.Veto.JetDeltaRMin: 0.3
+##ObjectID.Muon.Veto.JetDeltaRMin: 0.0
+#ObjectID.Muon.Veto.IsCombinedMuon: 1
+
+#------------------------------------------------------------------------------
+# Jets
+#------------------------------------------------------------------------------
+ObjectID.Jet.MinPt: 30.0
+ObjectID.Jet.MaxEta: 2.4
+ObjectID.BJet.MaxEta: 2.4
+ObjectID.BJet.MinPt: 30.
+#ObjectID.BJet.BTagCut: 0.8484 #Medium CSVv2 WP
+ObjectID.BJet.BTagCut: 0.9535 #Tight CSVv2 WP
+ObjectID.Jet.LepCleanR: 0.4
+ObjectID.BJet.MuonDeltaRMin: 0.4
+ObjectID.BJet.MuonPTrelMin:60.0
+ObjectID.BJet.BoostedDeltaRMin:0.8
+#ObjectID.Jet.ElectronDeltaRMin: 0.2
+
+ObjectID.Vertex.Ndof: 4.
+ObjectID.Vertex.Z: 24.
+ObjectID.Vertex.Dxy: 2.
+
+
+#------------------------------------------------------------------------------
+## BoostedJets
+##------------------------------------------------------------------------------
+ObjectID.BoostedJet.MinPt: 200.0
+#ObjectID.BoostedJet.MinPt: 450.0
+ObjectID.BoostedJet.MaxEta: 2.4
+#ObjectID.BoostedJet.LepCleanR: 0.4
+ObjectID.BoostedJet.MuonDeltaRMin: 0.8
+ObjectID.BoostedJet.MinPrunedMass:65.0
+ObjectID.BoostedJet.MaxPrunedMass:105
+ObjectID.BoostedJet.MinSoftdropMass:105
+ObjectID.BoostedJet.MaxSoftdropMass:220
+ObjectID.BoostedJet.Tau21:0.6
+ObjectID.BoostedJet.Tau32:0.32
+###------------------------------------------------------------------------------
